@@ -28,9 +28,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.corp.eharmony.com:matching/aloha-score.git</connection>
-        <url>git@github.corp.eharmony.com:matching/aloha-score.git</url>
-        <developerConnection>scm:git:git@github.corp.eharmony.com:matching/aloha-score.git</developerConnection>
+        <connection>scm:git:git@github.corp.eharmony.com:matching/aloha-proto.git</connection>
+        <url>git@github.corp.eharmony.com:matching/aloha-proto.git</url>
+        <developerConnection>scm:git:git@github.corp.eharmony.com:matching/aloha-proto.git</developerConnection>
     </scm>
 
     <distributionManagement>
