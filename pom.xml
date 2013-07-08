@@ -1,0 +1,149 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <!--
+    ****************************************************************************************************************
+     NOTE: Because Aloha is the parent, we automatically include a Scala build plugin even though there isn't
+           any Scala source or dependency in this project.  This may give a compiler warning and may add a few
+           seconds to the build but will not add any superfluous Maven dependencies.
+    ****************************************************************************************************************
+    -->
+
+    <parent>
+        <groupId>com.eharmony.matching</groupId>
+        <artifactId>aloha</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>aloha-proto_${protobuf.version}</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git@github.corp.eharmony.com:matching/aloha-score.git</connection>
+        <url>git@github.corp.eharmony.com:matching/aloha-score.git</url>
+        <developerConnection>scm:git:git@github.corp.eharmony.com:matching/aloha-score.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>internal-releases</id>
+            <name>Internal Releases</name>
+            <url>https://repository.corp.eharmony.com/nexus/content/repositories/internal-releases</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>internal-snapshots</id>
+            <name>Internal Snapshots</name>
+            <url>https://repository.corp.eharmony.com/nexus/content/repositories/internal-snapshots</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>ryan</id>
+            <name>Ryan Deak</name>
+            <email>rdeak@eharmony.com</email>
+            <organization>eHarmony</organization>
+            <organizationUrl>http://www.eharmony.com</organizationUrl>
+            <roles>
+                <role>creator</role>
+                <role>developer</role>
+            </roles>
+            <timezone>-8</timezone>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+        </dependency>
+
+        <!--
+            Required for protostuff JSON serialization.  See the following for more information.
+                http://code.google.com/p/protostuff/wiki/JsonSerialization#java_v2protoc_schema
+            For an example usage, see the ProtostuffJsonTest unit test.
+        -->
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-json</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+
+            <!-- Generate the protocol buffer source. -->
+            <plugin>
+                <groupId>com.google.protobuf.tools</groupId>
+                <artifactId>maven-protoc-plugin</artifactId>
+            </plugin>
+
+            <!-- Generate the ProtoStuff JSON serialization source. -->
+            <plugin>
+                <groupId>com.dyuproject.protostuff</groupId>
+                <artifactId>protostuff-maven-plugin</artifactId>
+                <version>${protostuff.version}</version>
+                <configuration>
+                    <protoModules>
+                        <protoModule>
+                            <source>src/main/proto/com.eharmony.matching.aloha.score.Scores.proto</source>
+                            <outputDir>target/generated-sources</outputDir>
+                            <output>java_v2protoc_schema</output>
+                            <encoding>UTF-8</encoding>
+                            <options>
+                                <property>
+                                    <name>generate_field_map</name>
+                                    <value>true</value>
+                                </property>
+                                <property>
+                                    <name>compile_imports</name>
+                                    <value>recursive</value>
+                                </property>
+                            </options>
+                        </protoModule>
+                    </protoModules>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
