@@ -65,7 +65,7 @@ Then, in the protocol buffer definitions of the downstream project, just import 
 
     package com.eharmony.matching.common.value;
 
-    option java_outer_classname="UserProtoBuffs";
+    option java_outer_classname="ScoredPairingProtoBuffs";
     import "com.eharmony.matching.aloha.score.Scores.proto";
 
     // More imports here ...
@@ -82,5 +82,5 @@ namespace collisions, it is advisable to name .proto files after the canonical c
 This way, there is no need to worry about different Protocol Buffers with the same name.  So, for instance, the above
 protocol buffer definition would be named:
 
-`com.eharmony.matching.common.value.UserProtoBuffs.proto`
+`com.eharmony.matching.common.value.ScoredPairingProtoBuffs.proto`
 
