@@ -8,6 +8,7 @@ Assuming that a downstream project is using [Maven](http://maven.apache.org/) (e
 the Protocol Buffers defined in this project by
 
 1. using the com.google.protobuf.tools maven-protoc-plugin
+1. add aloha-proto dependency to the downstream project that will use the protocol buffers
 1. properly importing the definitions in the proto
 
 To properly compile protocol buffer definitions under Maven, one should use the `maven-protoc-plugin`.  This allows the
@@ -59,6 +60,16 @@ Then include the plugin in the build `plugins` section of the POM:
             </execution>
         </executions>
     </plugin>
+```
+
+To import the Maven dependency, add to the `dependencies` of the project:
+
+```xml
+    <dependency>
+        <groupId>com.eharmony.matching</groupId>
+        <artifactId>aloha-proto_2.5.0</artifactId>  <!-- OR aloha-proto_2.4.1 OR aloha-proto_2.3.0 -->
+        <version>${aloha.proto.version}</version>   <!-- defined in the properties section of the POM. -->
+    </dependency>
 ```
 
 Then, in the protocol buffer definitions of the downstream project, just import the files regularly:
