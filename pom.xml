@@ -71,24 +71,6 @@
             <artifactId>protobuf-java</artifactId>
         </dependency>
 
-        <!--
-            Required for protostuff JSON serialization.  See the following for more information.
-                http://code.google.com/p/protostuff/wiki/JsonSerialization#java_v2protoc_schema
-            For an example usage, see the ProtostuffJsonTest unit test.
-        -->
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.dyuproject.protostuff</groupId>
-            <artifactId>protostuff-json</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-core-asl</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -107,42 +89,6 @@
             <plugin>
                 <groupId>com.google.protobuf.tools</groupId>
                 <artifactId>maven-protoc-plugin</artifactId>
-            </plugin>
-
-            <!-- Generate the ProtoStuff JSON serialization source. -->
-            <plugin>
-                <groupId>com.dyuproject.protostuff</groupId>
-                <artifactId>protostuff-maven-plugin</artifactId>
-                <version>${protostuff.version}</version>
-                <configuration>
-                    <protoModules>
-                        <protoModule>
-                            <source>src/main/proto/com.eharmony.matching.aloha.score.Scores.proto</source>
-                            <outputDir>target/generated-sources</outputDir>
-                            <output>java_v2protoc_schema</output>
-                            <encoding>UTF-8</encoding>
-                            <options>
-                                <property>
-                                    <name>generate_field_map</name>
-                                    <value>true</value>
-                                </property>
-                                <property>
-                                    <name>compile_imports</name>
-                                    <value>recursive</value>
-                                </property>
-                            </options>
-                        </protoModule>
-                    </protoModules>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>generate-sources</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
         <pluginManagement>
