@@ -104,3 +104,7 @@ message Score {
     // Scores for all sub-models.
     repeated Score sub_scores = 3;
 }
+
+message ScoreList {
+    repeated Score score = 1;
+}

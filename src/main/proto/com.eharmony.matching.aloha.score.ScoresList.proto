@@ -1,9 +1,0 @@
-package com.eharmony.matching.aloha.score;
-
-option java_outer_classname="ScoresList";
-
-import "com.eharmony.matching.aloha.score.Scores.proto";
-
-message ScoreList {
-    repeated Score score = 1;
-}
