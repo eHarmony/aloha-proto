@@ -9,7 +9,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eharmony.matching</groupId>
-	<artifactId>aloha-proto_2.4.1</artifactId>
+	<artifactId>aloha-proto</artifactId>
 	<version>0.9.9-SNAPSHOT</version>
 	<name>aloha</name>
 
