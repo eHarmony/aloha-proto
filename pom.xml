@@ -59,6 +59,13 @@
 		</developer>
 	</developers>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>protoc-plugin</id>
+			<url>http://sergei-ivanov.github.com/maven-protoc-plugin/repo/releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
@@ -84,6 +91,7 @@
 			<plugin>
 				<groupId>com.google.protobuf.tools</groupId>
 				<artifactId>maven-protoc-plugin</artifactId>
+				<version>0.3.1</version>
 			</plugin>
 
 			<plugin>
