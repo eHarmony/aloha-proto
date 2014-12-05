@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<!-- **************************************************************************************************************** 
 		NOTE: Because Aloha is the parent, we automatically include a Scala build 
@@ -58,13 +59,6 @@
 		</developer>
 	</developers>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>protoc-plugin</id>
-			<url>http://sergei-ivanov.github.com/maven-protoc-plugin/repo/releases/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
@@ -83,59 +77,37 @@
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<version>3.1</version>
 				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
 			</plugin>
 
 			<!-- Generate the protocol buffer source. -->
 			<plugin>
 				<groupId>com.google.protobuf.tools</groupId>
 				<artifactId>maven-protoc-plugin</artifactId>
-				<version>0.3.1</version>
+				<version>0.1.10</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>testCompile</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
 				<version>2.0</version>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.2</version>
-				<executions>
-					<execution>
-						<id>enforce-ban-version-downgrades</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<requireUpperBoundDeps />
-							</rules>
-						</configuration>
-					</execution>
-					<execution>
-						<id>enforce-ban-duplicate-classes</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<banDuplicateClasses>
-									<ignoreClasses />
-									<findAllDuplicates>true</findAllDuplicates>
-								</banDuplicateClasses>
-							</rules>
-							<fail>true</fail>
-						</configuration>
-					</execution>
-				</executions>
 				<dependencies>
 					<dependency>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>extra-enforcer-rules</artifactId>
-						<version>1.0-beta-3</version>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.3</version>
 					</dependency>
 				</dependencies>
 			</plugin>
