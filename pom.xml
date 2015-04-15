@@ -1,16 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-	<!-- **************************************************************************************************************** 
+	<!--
+	***********************************************************************************************
 		NOTE: Because Aloha is the parent, we automatically include a Scala build 
 		plugin even though there isn't any Scala source or dependency in this project. 
 		This may give a compiler warning and may add a few seconds to the build but 
-		will not add any superfluous Maven dependencies. **************************************************************************************************************** -->
+		will not add any superfluous Maven dependencies. 
+	***********************************************************************************************
+	-->
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eharmony.matching</groupId>
 	<artifactId>aloha-proto</artifactId>
 	<version>1.0.7-SNAPSHOT</version>
 	<name>aloha</name>
+
+	<properties>
+		<!-- Same as "protobuf.version" property in the aloha project. -->
+		<protobuf.version>2.4.1</protobuf.version> 
+	</properties>
 
 	<licenses>
 		<license>
@@ -62,7 +70,7 @@
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>2.5.0</version>
+			<version>${protobuf.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
