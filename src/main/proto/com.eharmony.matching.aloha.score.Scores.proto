@@ -1,4 +1,4 @@
-package com.eharmony.matching.aloha.score;
+package com.eharmony.aloha.score;
 
 option java_outer_classname="Scores";
 
@@ -6,8 +6,8 @@ option java_outer_classname="Scores";
 // To see how to easily convert a BaseScore in Score to a basic Java value see the following tests for a comprehensive
 // specification:
 //
-//   aloha/src/test/java/com.eharmony.matching.aloha.score.conversions.StrictConversionsTest
-//   aloha/src/test/java/com.eharmony.matching.aloha.score.conversions.RelaxedConversionsTest
+//   aloha/src/test/java/com.eharmony.aloha.score.conversions.StrictConversionsTest
+//   aloha/src/test/java/com.eharmony.aloha.score.conversions.RelaxedConversionsTest
 //
 //
 message Score {
