@@ -2,7 +2,7 @@
 
 This module provides [protocol buffer](http://code.google.com/p/protobuf/) definitions for entities used in the Aloha libraries.  Currently, this only includes
 
-*  _com.eharmony.matching.aloha.score.Scores_: Used for serializing scores output by models.  This allows for trees of polymorphic scores.
+*  _com.eharmony.aloha.score.Scores_: Used for serializing scores output by models.  This allows for trees of polymorphic scores.
 
 Assuming that a downstream project is using [Maven](http://maven.apache.org/) (either 2.x or 3.x), the project can use
 the Protocol Buffers defined in this project by
@@ -66,8 +66,8 @@ To import the Maven dependency, add to the `dependencies` of the project:
 
 ```xml
     <dependency>
-        <groupId>com.eharmony.matching</groupId>
-        <artifactId>aloha-proto_2.5.0</artifactId>  <!-- OR aloha-proto_2.4.1 OR aloha-proto_2.3.0 -->
+        <groupId>com.eharmony</groupId>
+        <artifactId>aloha-proto</artifactId>
         <version>${aloha.proto.version}</version>   <!-- defined in the properties section of the POM. -->
     </dependency>
 ```
@@ -77,12 +77,12 @@ Then, in the protocol buffer definitions of the downstream project, just import 
     package com.eharmony.matching.common.value;
 
     option java_outer_classname="ScoredPairingProtoBuffs";
-    import "com.eharmony.matching.aloha.score.Scores.proto";
+    import "com.eharmony.aloha.score.Scores.proto";
 
     // More imports here ...
 
     message ScoredPairing {
-        // This is com.eharmony.matching.aloha.score.Scores.Score
+        // This is com.eharmony.aloha.score.Scores.Score
         optional Score score = 1;
 
         // More data ...

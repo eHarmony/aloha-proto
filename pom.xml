@@ -35,6 +35,17 @@
 		<developerConnection>scm:git:git@github.com:eHarmony/aloha-proto.git</developerConnection>
 	</scm>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>dtrott-protoc-plugin</id>
+			<url>http://maven.davidtrott.com/repository</url>
+			<layout>default</layout>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<developers>
 		<developer>
 			<id>ryan</id>
