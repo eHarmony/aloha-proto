@@ -30,9 +30,9 @@
 	</licenses>
 
 	<scm>
-		<connection>scm:git:git@github.corp.eharmony.com:matching/aloha-proto.git</connection>
-		<url>git@github.corp.eharmony.com:matching/aloha-proto.git</url>
-		<developerConnection>scm:git:git@github.corp.eharmony.com:matching/aloha-proto.git</developerConnection>
+		<connection>scm:git:git@github.com:eHarmony/aloha-proto.git</connection>
+		<url>git@github.com:eHarmony/aloha-proto.git</url>
+		<developerConnection>scm:git:git@github.com:eHarmony/aloha-proto.git</developerConnection>
 	</scm>
 
 	<developers>
@@ -55,12 +55,6 @@
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
 			<version>${protobuf.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.5</version>
-			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
@@ -104,40 +98,5 @@
 				</dependencies>
 			</plugin>
 		</plugins>
-
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>
-											com.dyuproject.protostuff
-										</groupId>
-										<artifactId>
-											protostuff-maven-plugin
-										</artifactId>
-										<versionRange>[1.0.7,)</versionRange>
-										<goals>
-											<goal>compile</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
 	</build>
 </project>
