@@ -10,5 +10,4 @@ cache:
   - $HOME/protobuf
 
 before_install:
-    - bash travis-install-protobuf.sh
-    - export PATH=$HOME/protobuf/bin:$PATH
+    - source travis-install-protobuf.sh

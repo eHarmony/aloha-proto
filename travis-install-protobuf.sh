@@ -8,3 +8,5 @@ if [ ! -d "$HOME/protobuf/lib" ]; then
 else
   echo "Using cached directory."
 fi
+
+export PATH=$HOME/protobuf/bin:$PATH
