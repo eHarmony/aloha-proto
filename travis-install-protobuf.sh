@@ -8,6 +8,3 @@ if [ ! -d "$HOME/protobuf/lib" ]; then
 else
   echo "Using cached directory."
 fi
-
-export PATH=$HOME/protobuf/bin:$PATH
-export MAVEN_OPTS=-Dprotoc=$HOME/protobuf/bin/protoc $MAVEN_OPTS
