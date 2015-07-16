@@ -11,5 +11,7 @@ cache:
 
 before_install:
     - bash travis-install-protobuf.sh
+    - export PATH=$HOME/protobuf/bin:$PATH
+    - export MAVEN_OPTS=-Dprotoc=$HOME/protobuf/bin/protoc $MAVEN_OPTS
     - echo path=$PATH
     - echo maven_opts=$MAVEN_OPTS
