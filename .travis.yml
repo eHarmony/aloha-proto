@@ -10,4 +10,4 @@ cache:
   - $HOME/protobuf
 
 before_install:
-    - bash install-protobuf.sh
+    - bash travis-install-protobuf.sh
