@@ -1,5 +1,7 @@
 # Protocol Buffer Definitions for Aloha Libraries #
 
+[![Build Status](https://travis-ci.org/eHarmony/aloha-proto.svg?branch=master)](https://travis-ci.org/eHarmony/aloha-proto)
+
 This module provides [protocol buffer](http://code.google.com/p/protobuf/) definitions for entities used in the Aloha libraries.  Currently, this only includes
 
 *  _com.eharmony.aloha.score.Scores_: Used for serializing scores output by models.  This allows for trees of polymorphic scores.
