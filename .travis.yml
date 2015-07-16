@@ -11,7 +11,4 @@ cache:
 
 before_install:
     - bash travis-install-protobuf.sh
-
-install: mvn install -Dprotoc=$HOME/protobuf/bin/protoc -DskipTests=true -Dmaven.javadoc.skip=true
-
-script: mvn test -Dprotoc=$HOME/protobuf/bin/protoc
+    - export PATH=$HOME/protobuf/bin:$PATH
