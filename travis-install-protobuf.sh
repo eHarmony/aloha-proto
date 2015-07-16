@@ -10,3 +10,4 @@ else
 fi
 
 export PATH=$HOME/protobuf/bin:$PATH
+export MAVEN_OPTS=-Dprotoc=$HOME/protobuf/bin/protoc $MAVEN_OPTS
