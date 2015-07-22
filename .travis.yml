@@ -1,0 +1,13 @@
+language: java
+
+jdk:
+    - oraclejdk7
+
+sudo: false
+
+cache:
+  directories:
+  - $HOME/protobuf
+
+before_install:
+    - source travis-install-protobuf.sh

@@ -19,6 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!-- Same as "protobuf.version" property in the aloha project. -->
 		<protobuf.version>2.4.1</protobuf.version>
+		<protoc>protoc</protoc>
 	</properties>
 
 	<licenses>
@@ -86,6 +87,9 @@
 				<groupId>com.google.protobuf.tools</groupId>
 				<artifactId>maven-protoc-plugin</artifactId>
 				<version>0.1.10</version>
+				<configuration>
+					<protocExecutable>${protoc}</protocExecutable>
+				</configuration>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
