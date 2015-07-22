@@ -95,3 +95,7 @@ protocol buffer definition would be named:
 
 `com.eharmony.matching.common.value.ScoredPairingProtoBuffs.proto`
 
+## License ##
+
+Aloha is released under the [MIT License](http://opensource.org/licenses/MIT).
+
