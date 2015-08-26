@@ -12,7 +12,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.eharmony</groupId>
 	<artifactId>aloha-proto</artifactId>
-	<version>2.0.0</version>
+	<version>2.0.1-SNAPSHOT</version>
 	<name>aloha</name>
 
 	<properties>
@@ -45,7 +45,8 @@
 		<connection>scm:git:git@github.com:eHarmony/aloha-proto.git</connection>
 		<url>git@github.com:eHarmony/aloha-proto.git</url>
 		<developerConnection>scm:git:git@github.com:eHarmony/aloha-proto.git</developerConnection>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
 	<pluginRepositories>
 		<pluginRepository>
