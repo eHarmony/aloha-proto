@@ -46,6 +46,7 @@ message Score {
 
         required ModelId model = 1;
         required ScoreType type = 2;
+        optional float probability = 3;
     }
 
     message BooleanScore {
