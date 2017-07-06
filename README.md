@@ -10,8 +10,8 @@ mvn clean install
 
 ## Description
 
-This module provides [protocol buffer](http://code.google.com/p/protobuf/) definitions
-for entities used in the Aloha libraries.  Currently, this only includes
+This module provides [protocol buffer](https://developers.google.com/protocol-buffers/)
+definitions for entities used in the Aloha libraries.  Currently, this only includes
 
 *  _com.eharmony.aloha.score.Scores_: Used for serializing scores output by
 models.  This allows for trees of polymorphic scores.
