@@ -18,7 +18,7 @@ if [ ! -d "$HOME/protobuf/lib" ]; then
   cd protobuf-2.4.1
 
   # Patch the src/google/protobuf/message.cc file to add additional include.
-  patch src/google/protobuf/message.cc <(
+   (
 cat <<EOD
 --- c1/protobuf-2.4.1/src/google/protobuf/message.cc	2011-04-30 10:22:04.000000000 -0700
 +++ c2/protobuf-2.4.1/src/google/protobuf/message.cc	2017-07-06 10:24:32.000000000 -0700
@@ -30,7 +30,9 @@ cat <<EOD
  #include <stack>
  #include <google/protobuf/stubs/hash.h>
 EOD
-)
+) > message.cc.patch
+
+patch src/google/protobuf/message.cc ./message.cc.patch
 
   export CXXFLAGS="-DNDEBUG $CXXFLAGS"
   ./configure --prefix=$HOME/protobuf --disable-debug --disable-dependency-tracking --with-zlib && make && make install
